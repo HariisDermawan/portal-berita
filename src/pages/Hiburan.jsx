@@ -35,8 +35,6 @@ function Hiburan() {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024)
   const [selectedCategory, setSelectedCategory] = useState('semua')
   const [showCommentSection, setShowCommentSection] = useState(true)
-
-  // State untuk komentar
   const [comments, setComments] = useState([])
   const [newComment, setNewComment] = useState('')
   const [userName, setUserName] = useState('')
@@ -46,13 +44,10 @@ function Hiburan() {
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
-
-    // Load comments dari localStorage
     const savedComments = localStorage.getItem('hiburanComments')
     if (savedComments) {
       setComments(JSON.parse(savedComments))
     } else {
-      // Data komentar contoh
       const sampleComments = [
         {
           id: 1,
@@ -416,7 +411,6 @@ function Hiburan() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* HEADER SECTION */}
       <motion.div
         className="mb-8 sm:mb-10 md:mb-12 lg:mb-14"
         initial={{ y: -30, opacity: 0 }}
@@ -439,8 +433,6 @@ function Hiburan() {
           fashion, hingga creator digital populer.
         </p>
       </motion.div>
-
-      {/* CATEGORY FILTER */}
       <motion.div
         className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 overflow-x-auto pb-3"
         initial={{ y: -20, opacity: 0 }}
@@ -452,8 +444,8 @@ function Hiburan() {
             key={idx}
             onClick={() => setSelectedCategory(category.name.toLowerCase())}
             className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm transition-all whitespace-nowrap ${selectedCategory === category.name.toLowerCase()
-                ? 'bg-red-500 text-white shadow-lg'
-                : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+              ? 'bg-red-500 text-white shadow-lg'
+              : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
               }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -461,16 +453,14 @@ function Hiburan() {
             <category.icon className="text-xs sm:text-sm" />
             {category.name}
             <span className={`ml-1 text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full ${selectedCategory === category.name.toLowerCase()
-                ? 'bg-white text-red-500'
-                : 'bg-gray-200 text-gray-600'
+              ? 'bg-white text-red-500'
+              : 'bg-gray-200 text-gray-600'
               }`}>
               {category.count}
             </span>
           </motion.button>
         ))}
       </motion.div>
-
-      {/* TOP NEWS SECTION */}
       <motion.div
         className="flex flex-col lg:grid lg:grid-cols-[1.7fr_420px] gap-5 sm:gap-6 md:gap-8"
         initial={{ y: 50, opacity: 0 }}
@@ -521,8 +511,6 @@ function Hiburan() {
             </div>
           </div>
         </motion.div>
-
-        {/* RIGHT COLUMN - SIDE NEWS */}
         <motion.div className="space-y-4 sm:space-y-5" variants={itemVariants}>
           <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-white">
             <h3 className="font-bold text-sm sm:text-base flex items-center gap-2">
@@ -572,9 +560,7 @@ function Hiburan() {
         </motion.div>
       </motion.div>
 
-      {/* MAIN CONTENT WITH GRID AND SIDEBAR */}
       <div className="flex flex-col lg:grid lg:grid-cols-[1.7fr_360px] gap-5 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
-        {/* LEFT COLUMN - GRID NEWS */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -919,7 +905,6 @@ function Hiburan() {
             </div>
           </motion.div>
 
-          {/* SOCIAL MEDIA */}
           <motion.div
             className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition"
             variants={itemVariants}
@@ -969,26 +954,7 @@ function Hiburan() {
             </motion.button>
           </motion.div>
 
-          {/* ENTERTAINMENT QUIZ */}
-          <motion.div
-            className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg"
-            variants={itemVariants}
-          >
-            <h3 className="font-bold text-gray-900 mb-3 text-base sm:text-lg flex items-center gap-2">
-              <FaStar className="text-red-500" />
-              Quiz Hiburan
-            </h3>
-            <p className="text-gray-600 text-xs sm:text-sm mb-3">
-              Seberapa tahu Anda tentang dunia hiburan?
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-red-500 text-white font-semibold py-2 rounded-lg text-sm hover:bg-red-600 transition"
-            >
-              Ikuti Quiz
-            </motion.button>
-          </motion.div>
+
         </motion.div>
       </div>
     </motion.main>
