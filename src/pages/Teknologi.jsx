@@ -837,7 +837,6 @@ function Teknologi() {
                     initial="hidden"
                     animate="visible"
                 >
-                    {/* TRENDING SECTION */}
                     <motion.div
                         className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition"
                         variants={itemVariants}
@@ -885,8 +884,6 @@ function Teknologi() {
                             ))}
                         </div>
                     </motion.div>
-
-                    {/* POPULAR STORIES */}
                     <motion.div
                         className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition"
                         variants={itemVariants}
@@ -928,8 +925,6 @@ function Teknologi() {
                             ))}
                         </div>
                     </motion.div>
-
-                    {/* SOCIAL MEDIA */}
                     <motion.div
                         className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition"
                         variants={itemVariants}
@@ -955,8 +950,6 @@ function Teknologi() {
                             ))}
                         </div>
                     </motion.div>
-
-                    {/* NEWSLETTER */}
                     <motion.div
                         className="bg-gradient-to-br from-red-500 to-red-600 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-white shadow-lg"
                         variants={itemVariants}
@@ -978,8 +971,6 @@ function Teknologi() {
                             Berlangganan
                         </motion.button>
                     </motion.div>
-
-                    {/* TECH STATS */}
                     <motion.div
                         className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg"
                         variants={itemVariants}

@@ -110,7 +110,6 @@ function Olahraga() {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    // Simpan komentar ke localStorage
     useEffect(() => {
         if (comments.length > 0) {
             localStorage.setItem('olahragaComments', JSON.stringify(comments))
@@ -124,8 +123,6 @@ function Olahraga() {
             setBookmarked([...bookmarked, id])
         }
     }
-
-    // Fungsi untuk menambah komentar
     const addComment = () => {
         if (!newComment.trim()) return
         if (!userName.trim()) {
@@ -166,8 +163,6 @@ function Olahraga() {
         
         setNewComment('')
     }
-
-    // Fungsi like komentar
     const likeComment = (commentId, isReply = false, parentId = null) => {
         const likeKey = `${commentId}-${isReply ? 'reply' : 'comment'}`
         
@@ -219,8 +214,6 @@ function Olahraga() {
             }
         }
     }
-
-    // Fungsi hapus komentar
     const deleteComment = (commentId, isReply = false, parentId = null) => {
         if (window.confirm('Apakah Anda yakin ingin menghapus komentar ini?')) {
             if (isReply && parentId) {
@@ -238,8 +231,6 @@ function Olahraga() {
             }
         }
     }
-
-    // Format tanggal
     const formatDate = (dateString) => {
         const date = new Date(dateString)
         const now = new Date()
@@ -255,8 +246,6 @@ function Olahraga() {
             year: 'numeric'
         })
     }
-
-    // Data Klasemen Liga 1
     const liga1Standings = [
         { position: 1, team: 'Persib Bandung', played: 34, won: 22, draw: 8, lost: 4, goalsFor: 68, goalsAgainst: 28, points: 74 },
         { position: 2, team: 'Borneo FC Samarinda', played: 34, won: 21, draw: 7, lost: 6, goalsFor: 62, goalsAgainst: 31, points: 70 },
